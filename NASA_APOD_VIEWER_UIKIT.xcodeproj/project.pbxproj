@@ -19,6 +19,8 @@
 		2F2E4C3B2719C4E00006B35D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */; };
 		2F2E4C3D2719CB770006B35D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3C2719CB770006B35D /* TitleView.swift */; };
 		2F2E4C3F2719CBA90006B35D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3E2719CBA90006B35D /* TitleView.xib */; };
+		2F6FADF3271DB814000675F3 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADF1271DB814000675F3 /* CarouselView.swift */; };
+		2F6FADF4271DB814000675F3 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FADF2271DB814000675F3 /* CarouselView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		2F2E4C3C2719CB770006B35D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		2F2E4C3E2719CBA90006B35D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		2F6FADF1271DB814000675F3 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		2F6FADF2271DB814000675F3 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */,
 				2F2E4C3C2719CB770006B35D /* TitleView.swift */,
 				2F2E4C3E2719CBA90006B35D /* TitleView.xib */,
+				2F6FADF1271DB814000675F3 /* CarouselView.swift */,
+				2F6FADF2271DB814000675F3 /* CarouselView.xib */,
 				2F2E4C102719C3B40006B35D /* Main.storyboard */,
 				2F2E4C132719C3B80006B35D /* Assets.xcassets */,
 				2F2E4C152719C3B80006B35D /* LaunchScreen.storyboard */,
@@ -244,6 +250,7 @@
 				2F2E4C142719C3B80006B35D /* Assets.xcassets in Resources */,
 				2F2E4C122719C3B40006B35D /* Main.storyboard in Resources */,
 				2F2E4C3F2719CBA90006B35D /* TitleView.xib in Resources */,
+				2F6FADF4271DB814000675F3 /* CarouselView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 				2F2E4C0B2719C3B40006B35D /* AppDelegate.swift in Sources */,
 				2F2E4C0D2719C3B40006B35D /* SceneDelegate.swift in Sources */,
 				2F2E4C3B2719C4E00006B35D /* DetailsViewController.swift in Sources */,
+				2F6FADF3271DB814000675F3 /* CarouselView.swift in Sources */,
 				2F2E4C3D2719CB770006B35D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
