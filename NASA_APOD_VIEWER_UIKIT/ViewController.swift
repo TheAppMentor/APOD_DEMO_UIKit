@@ -7,64 +7,78 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+struct PostViewModel {
+    let title : String
+    let date : String
+    let copyright : String
+    let explanation : String
+    let imageURL : String
+}
+
+class ViewController: UIViewController, CarouselDelegate {
     
-    var imageViewStack : [UIImageView] = []
+    var currentlyDisplayedPostIndex = 0
     
-    @IBOutlet var centeImageView: UIImageView!
-    @IBOutlet var centerImageViewWidthConstraint: NSLayoutConstraint!
+    let allPosts = [
+        PostViewModel(title: "POST 1", date: "TODAY", copyright: "CP1", explanation: "BLAH BLAH 1", imageURL: "https://apod.nasa.gov/apod/image/0004/m78_sdss.jpg"),
+        PostViewModel(title: "POST 2", date: "TODAY + 1", copyright: "CP2", explanation: "BLAH BLAH 2", imageURL: "https://apod.nasa.gov/apod/image/0703/barnard163_noao_big.jpg"),
+        PostViewModel(title: "POST 3", date: "TODAY + 2", copyright: "CP3", explanation: "BLAH BLAH 3", imageURL: "https://apod.nasa.gov/apod/image/1302/moonjupitermoons_gibbs_2000.jpg"),
+        PostViewModel(title: "POST 4", date: "TODAY + 3", copyright: "CP4", explanation: "BLAH BLAH 4", imageURL: "https://apod.nasa.gov/apod/image/1209/airglow120824_ladanyi_1800px.jpg"),
+        PostViewModel(title: "POST 5", date: "TODAY + 4", copyright: "CP5", explanation: "BLAH BLAH 5", imageURL: "https://apod.nasa.gov/apod/image/9612/novacyg_cfa_big.gif"),
+    ]
     
-    @IBOutlet weak var rightImageViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var rightImageView: UIImageView!
     
+    func getImage(index: Int) async -> UIImage {
+        
+        currentlyDisplayedPostIndex = index
+        titleView.titleLabel.text = allPosts[currentlyDisplayedPostIndex].title
+        
+        let urlString = allPosts[index].imageURL
+        let url = URL(string: urlString)!
+        let startA = CFAbsoluteTimeGetCurrent()
+        let fetchedImageData = try! await ImageManager.shared.getImageFromURL(url: url)
+        print("Data Fetch : \(CFAbsoluteTimeGetCurrent() - startA)")
+        
+        let startB = CFAbsoluteTimeGetCurrent()
+        let image = UIImage(data: fetchedImageData)!
+        print("Data To Image : \(CFAbsoluteTimeGetCurrent() - startB)")
+
+        return image
+    }
+    
+    var getTotalImageCount: Int {
+        return allPosts.count
+    }
     
     @IBOutlet weak var titleView: TitleView!
+    @IBOutlet weak var carouselView : CarouselView!
     
-    @IBAction func tappedRight(_ sender: UITapGestureRecognizer) {
-        
-        centerImageViewWidthConstraint.constant = -self.view.frame.width + 0.5
-        
-        print("Tapped Right")
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
-            self.view.layoutIfNeeded()
-        } completion: { success in
-            print("Animation Done")
-        }
-
-    }
-    
-    @IBAction func tappedLeft(_ sender: UITapGestureRecognizer) {
-        print("Tapped Left")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageViewStack.append(centeImageView)
-    
-        // Do any additional setup after loading the view.
-        titleView.titleLabel.text = "From the View Controller"
-        titleView.onTapAction = openSheet
+        Task {
+            await fetchAPODData()
+        }
+                    
+        titleView.onTapAction = openDetailPanel
     }
     
-    func openSheet() {
-            //let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController")
-            let secondVC = DetailsViewController()
-            // Create the view controller.
-            if #available(iOS 15.0, *) {
-                let formNC = UINavigationController(rootViewController: secondVC)
-                formNC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
-                guard let sheetPresentationController = formNC.presentationController as? UISheetPresentationController else {
-                    return
-                }
-                sheetPresentationController.detents = [.medium(), .large()]
-                sheetPresentationController.prefersGrabberVisible = true
-                present(formNC, animated: true, completion: nil)
-            } else {
-                // Fallback on earlier versions
-            }
-       }
-
-
+    func fetchAPODData() async {
+        
+    }
+    
+    func openDetailPanel() {
+        let detailsVC = PostDetailsVC(postViewModel: allPosts[currentlyDisplayedPostIndex])
+        
+        let navController = UINavigationController(rootViewController: detailsVC)
+        navController.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+        guard let formSheetController = navController.presentationController as? UISheetPresentationController else {
+            return
+        }
+        formSheetController.detents = [.medium()]
+        formSheetController.prefersGrabberVisible = true
+        present(navController, animated: true, completion: nil)
+    }
 }
 

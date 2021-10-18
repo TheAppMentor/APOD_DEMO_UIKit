@@ -146,7 +146,7 @@ class CarouselView: UIView {
             print("NOW I GOT THE REAL IMAGE")
             
             UIView.transition(with: leftImageView,
-                              duration: 0.5,
+                              duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: { leftImageView.image = newImage },
                               completion: nil)
@@ -230,7 +230,7 @@ class CarouselView: UIView {
             print("NOW I GOT THE REAL IMAGE")
             
             UIView.transition(with: rightImageView,
-                              duration: 0.5,
+                              duration: 0.3,
                               options: .transitionCrossDissolve,
                               animations: { rightImageView.image = newImage },
                               completion: nil)

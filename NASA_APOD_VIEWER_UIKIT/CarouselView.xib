@@ -8,24 +8,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselView" customModule="CarouselTester" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselView" customModule="NASA_APOD_VIEWER_UIKIT" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="329" height="668"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YzP-UF-I3n">
-                    <rect key="frame" x="0.0" y="0.0" width="329" height="668"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlW-Xp-qyl" userLabel="leftTapDetectorView">
-                            <rect key="frame" x="0.0" y="67" width="139.5" height="534"/>
+                            <rect key="frame" x="0.0" y="89.5" width="182" height="717"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="Ebh-La-y2W" appends="YES" id="hQc-8a-znf"/>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNy-As-CBX" userLabel="rightTapDetectorView">
-                            <rect key="frame" x="189.5" y="67" width="139.5" height="534"/>
+                            <rect key="frame" x="232" y="89.5" width="182" height="717"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="aKU-ny-MhH" appends="YES" id="XIy-ll-e7O"/>
@@ -46,8 +46,7 @@
                 <constraint firstAttribute="trailing" secondItem="YzP-UF-I3n" secondAttribute="trailing" id="beQ-PM-Z3R"/>
                 <constraint firstItem="YzP-UF-I3n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yFz-4H-0jD"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="76.08695652173914" y="77.008928571428569"/>
+            <point key="canvasLocation" x="76.08695652173914" y="63.616071428571423"/>
         </view>
         <tapGestureRecognizer id="Ebh-La-y2W" userLabel="leftTapDetector">
             <connections>

@@ -59,10 +59,5 @@ class TitleView: UIView {
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "TitleView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
-    
-    override class func awakeFromNib() {
-        print("Awaking from Nim Man")
-        
-    }
 
 }

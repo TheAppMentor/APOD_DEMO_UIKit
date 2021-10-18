@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E309F8A2-5A88-4402-9B2A-209DDD5A96D1"
+            uuid = "1C527A33-A410-4AE7-A5F9-7817548879FD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NASA_APOD_VIEWER_UIKIT/ViewController.swift"
+            filePath = "NASA_APOD_VIEWER_UIKIT/DetailsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "openSheet()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "instanceFromNib()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
