@@ -7,7 +7,8 @@
 
 import XCTest
 
-class NASA_APOD_VIEWER_UIKITUITests: XCTestCase {
+// swiftlint:disable line_length
+class APODViewerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

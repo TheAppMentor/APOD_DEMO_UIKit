@@ -13,12 +13,8 @@
 		2F2E4C122719C3B40006B35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E4C102719C3B40006B35D /* Main.storyboard */; };
 		2F2E4C142719C3B80006B35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E4C132719C3B80006B35D /* Assets.xcassets */; };
 		2F2E4C172719C3B80006B35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E4C152719C3B80006B35D /* LaunchScreen.storyboard */; };
-		2F2E4C222719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C212719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.swift */; };
-		2F2E4C2C2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C2B2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.swift */; };
-		2F2E4C2E2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C2D2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift */; };
-		2F2E4C3B2719C4E00006B35D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */; };
-		2F2E4C3D2719CB770006B35D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3C2719CB770006B35D /* TitleView.swift */; };
-		2F2E4C3F2719CBA90006B35D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E4C3E2719CBA90006B35D /* TitleView.xib */; };
+		2F2E4C222719C3B80006B35D /* APODViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C212719C3B80006B35D /* APODViewerTests.swift */; };
+		2F2E4C2C2719C3B80006B35D /* APODViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E4C2B2719C3B80006B35D /* APODViewerUITests.swift */; };
 		2F6FADF3271DB814000675F3 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADF1271DB814000675F3 /* CarouselView.swift */; };
 		2F6FADF4271DB814000675F3 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FADF2271DB814000675F3 /* CarouselView.xib */; };
 		2F6FADFB271DC418000675F3 /* PostDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */; };
@@ -26,6 +22,12 @@
 		2F6FADFE271DF785000675F3 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADFD271DF785000675F3 /* ImageManager.swift */; };
 		2F6FAE00271DF7AA000675F3 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADFF271DF7A9000675F3 /* HTTPError.swift */; };
 		2F6FAE03271E0252000675F3 /* nasa-apod-dataservice in Frameworks */ = {isa = PBXBuildFile; productRef = 2F6FAE02271E0252000675F3 /* nasa-apod-dataservice */; };
+		2F6FAE05271ED47C000675F3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FAE04271ED47C000675F3 /* DateUtils.swift */; };
+		2F6FAE09271ED89E000675F3 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FAE07271ED89D000675F3 /* TitleView.swift */; };
+		2F6FAE0A271ED89E000675F3 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FAE08271ED89D000675F3 /* TitleView.xib */; };
+		2FC26EA8271EDADA003129FE /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EA7271EDADA003129FE /* Position.swift */; };
+		2FC26EAD271F033B003129FE /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EAC271F033B003129FE /* AppConstants.swift */; };
+		2FC26EAF271F0457003129FE /* ImageMangerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EAE271F0457003129FE /* ImageMangerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,19 +57,21 @@
 		2F2E4C162719C3B80006B35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F2E4C182719C3B80006B35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2E4C1D2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASA_APOD_VIEWER_UIKITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2E4C212719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_APOD_VIEWER_UIKITTests.swift; sourceTree = "<group>"; };
+		2F2E4C212719C3B80006B35D /* APODViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewerTests.swift; sourceTree = "<group>"; };
 		2F2E4C272719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASA_APOD_VIEWER_UIKITUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2E4C2B2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_APOD_VIEWER_UIKITUITests.swift; sourceTree = "<group>"; };
-		2F2E4C2D2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		2F2E4C3C2719CB770006B35D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		2F2E4C3E2719CBA90006B35D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		2F2E4C2B2719C3B80006B35D /* APODViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewerUITests.swift; sourceTree = "<group>"; };
 		2F6FADF1271DB814000675F3 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		2F6FADF2271DB814000675F3 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 		2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsVC.swift; sourceTree = "<group>"; };
 		2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsVC.xib; sourceTree = "<group>"; };
 		2F6FADFD271DF785000675F3 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		2F6FADFF271DF7A9000675F3 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		2F6FAE04271ED47C000675F3 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		2F6FAE07271ED89D000675F3 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		2F6FAE08271ED89D000675F3 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		2FC26EA7271EDADA003129FE /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		2FC26EAC271F033B003129FE /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		2FC26EAE271F0457003129FE /* ImageMangerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMangerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,16 +125,10 @@
 			children = (
 				2F2E4C0A2719C3B40006B35D /* AppDelegate.swift */,
 				2F2E4C0C2719C3B40006B35D /* SceneDelegate.swift */,
-				2F6FADFD271DF785000675F3 /* ImageManager.swift */,
-				2F6FADFF271DF7A9000675F3 /* HTTPError.swift */,
-				2F2E4C0E2719C3B40006B35D /* NASAApodImageViewController.swift */,
-				2F2E4C3A2719C4E00006B35D /* DetailsViewController.swift */,
-				2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */,
-				2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */,
-				2F2E4C3C2719CB770006B35D /* TitleView.swift */,
-				2F2E4C3E2719CBA90006B35D /* TitleView.xib */,
-				2F6FADF1271DB814000675F3 /* CarouselView.swift */,
-				2F6FADF2271DB814000675F3 /* CarouselView.xib */,
+				2FC26EAB271EDB42003129FE /* Utils & Constants */,
+				2FC26EAA271EDB18003129FE /* ViewControllers */,
+				2FC26EA9271EDAF4003129FE /* Enums */,
+				2FC26EA6271ED9BA003129FE /* Views */,
 				2F2E4C102719C3B40006B35D /* Main.storyboard */,
 				2F2E4C132719C3B80006B35D /* Assets.xcassets */,
 				2F2E4C152719C3B80006B35D /* LaunchScreen.storyboard */,
@@ -142,7 +140,7 @@
 		2F2E4C202719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests */ = {
 			isa = PBXGroup;
 			children = (
-				2F2E4C212719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.swift */,
+				2F2E4C212719C3B80006B35D /* APODViewerTests.swift */,
 			);
 			path = NASA_APOD_VIEWER_UIKITTests;
 			sourceTree = "<group>";
@@ -150,10 +148,50 @@
 		2F2E4C2A2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2F2E4C2B2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.swift */,
-				2F2E4C2D2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift */,
+				2F2E4C2B2719C3B80006B35D /* APODViewerUITests.swift */,
 			);
 			path = NASA_APOD_VIEWER_UIKITUITests;
+			sourceTree = "<group>";
+		};
+		2FC26EA6271ED9BA003129FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FAE07271ED89D000675F3 /* TitleView.swift */,
+				2F6FAE08271ED89D000675F3 /* TitleView.xib */,
+				2F6FADF1271DB814000675F3 /* CarouselView.swift */,
+				2F6FADF2271DB814000675F3 /* CarouselView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FC26EA9271EDAF4003129FE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2FC26EA7271EDADA003129FE /* Position.swift */,
+				2F6FADFF271DF7A9000675F3 /* HTTPError.swift */,
+				2FC26EAE271F0457003129FE /* ImageMangerError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		2FC26EAA271EDB18003129FE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F2E4C0E2719C3B40006B35D /* NASAApodImageViewController.swift */,
+				2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */,
+				2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2FC26EAB271EDB42003129FE /* Utils & Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FADFD271DF785000675F3 /* ImageManager.swift */,
+				2F6FAE04271ED47C000675F3 /* DateUtils.swift */,
+				2FC26EAC271F033B003129FE /* AppConstants.swift */,
+			);
+			path = "Utils & Constants";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +204,7 @@
 				2F2E4C032719C3B40006B35D /* Sources */,
 				2F2E4C042719C3B40006B35D /* Frameworks */,
 				2F2E4C052719C3B40006B35D /* Resources */,
+				2FC26EB0271F2B4D003129FE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,8 +309,8 @@
 				2F6FADFC271DC418000675F3 /* PostDetailsVC.xib in Resources */,
 				2F2E4C142719C3B80006B35D /* Assets.xcassets in Resources */,
 				2F2E4C122719C3B40006B35D /* Main.storyboard in Resources */,
-				2F2E4C3F2719CBA90006B35D /* TitleView.xib in Resources */,
 				2F6FADF4271DB814000675F3 /* CarouselView.xib in Resources */,
+				2F6FAE0A271ED89E000675F3 /* TitleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,20 +330,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FC26EB0271F2B4D003129FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2F2E4C032719C3B40006B35D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC26EA8271EDADA003129FE /* Position.swift in Sources */,
 				2F2E4C0F2719C3B40006B35D /* NASAApodImageViewController.swift in Sources */,
 				2F6FAE00271DF7AA000675F3 /* HTTPError.swift in Sources */,
+				2FC26EAD271F033B003129FE /* AppConstants.swift in Sources */,
+				2FC26EAF271F0457003129FE /* ImageMangerError.swift in Sources */,
 				2F2E4C0B2719C3B40006B35D /* AppDelegate.swift in Sources */,
 				2F6FADFB271DC418000675F3 /* PostDetailsVC.swift in Sources */,
 				2F2E4C0D2719C3B40006B35D /* SceneDelegate.swift in Sources */,
-				2F2E4C3B2719C4E00006B35D /* DetailsViewController.swift in Sources */,
 				2F6FADFE271DF785000675F3 /* ImageManager.swift in Sources */,
+				2F6FAE05271ED47C000675F3 /* DateUtils.swift in Sources */,
 				2F6FADF3271DB814000675F3 /* CarouselView.swift in Sources */,
-				2F2E4C3D2719CB770006B35D /* TitleView.swift in Sources */,
+				2F6FAE09271ED89E000675F3 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F2E4C222719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests.swift in Sources */,
+				2F2E4C222719C3B80006B35D /* APODViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F2E4C2E2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITestsLaunchTests.swift in Sources */,
-				2F2E4C2C2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests.swift in Sources */,
+				2F2E4C2C2719C3B80006B35D /* APODViewerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +547,7 @@
 				DEVELOPMENT_TEAM = TLV25NDMDF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NASA_APOD_VIEWER_UIKIT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NASA APOD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -515,6 +577,7 @@
 				DEVELOPMENT_TEAM = TLV25NDMDF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NASA_APOD_VIEWER_UIKIT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NASA APOD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

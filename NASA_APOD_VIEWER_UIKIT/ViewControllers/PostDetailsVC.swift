@@ -9,15 +9,15 @@ import UIKit
 import nasa_apod_dataservice
 
 class PostDetailsVC: UIViewController {
-    
-    var postViewModel : Post?
-    
+
+    var postViewModel: Post?
+
     @IBOutlet var postTitle: UILabel!
     @IBOutlet var postDate: UILabel!
     @IBOutlet var postCopyright: UILabel!
     @IBOutlet var postExplanation: UITextView!
-     
-    convenience init(postViewModel : Post) {
+
+    convenience init(postViewModel: Post) {
         self.init()
         self.postViewModel = postViewModel
     }
@@ -26,9 +26,14 @@ class PostDetailsVC: UIViewController {
         super.viewDidLoad()
 
         postTitle.text = postViewModel?.title
-        postDate.text = "Date"
         postCopyright.text = postViewModel?.copyright
         postExplanation.text = postViewModel?.explanation
+
+        if let validDate = postViewModel?.date {
+            postDate.text = DateUtils.getStringFromDate(date: validDate)
+
+        }
+
     }
 
 }

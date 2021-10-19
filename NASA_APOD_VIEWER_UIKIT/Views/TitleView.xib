@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="NASA_APOD_VIEWER_UIKIT" customModuleProvider="target">
             <connections>
                 <outlet property="blurEffectView" destination="sMJ-7p-iGz" id="mbq-kw-bff"/>
-                <outlet property="moreInfoButton" destination="LIP-5P-evD" id="2kO-n6-4CS"/>
+                <outlet property="loadingIndicator" destination="snp-Wp-51V" id="t7t-As-Zjv"/>
                 <outlet property="titleLabel" destination="EmI-kd-ViT" id="0lH-Yi-XeL"/>
             </connections>
         </placeholder>
@@ -45,22 +45,21 @@
                     </vibrancyEffect>
                 </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="thD-lK-fTO">
-                    <rect key="frame" x="20" y="8" width="647" height="266"/>
+                    <rect key="frame" x="20" y="8" width="635" height="266"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a really really long title that should span Two lines" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmI-kd-ViT">
-                            <rect key="frame" x="0.0" y="123" width="595" height="20.5"/>
+                            <rect key="frame" x="0.0" y="123" width="635" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIP-5P-evD">
-                            <rect key="frame" x="603" y="111" width="44" height="44"/>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="snp-Wp-51V">
+                            <rect key="frame" x="0.0" y="111" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="LIP-5P-evD" secondAttribute="height" multiplier="1:1" id="buZ-8g-uf5"/>
-                                <constraint firstAttribute="width" constant="44" id="rfJ-IP-qqY"/>
+                                <constraint firstAttribute="width" constant="44" id="Nf9-4Z-aa5"/>
+                                <constraint firstAttribute="width" secondItem="snp-Wp-51V" secondAttribute="height" multiplier="1:1" id="yPv-rE-upd"/>
                             </constraints>
-                            <buttonConfiguration key="configuration" style="plain"/>
-                        </button>
+                        </activityIndicatorView>
                     </subviews>
                     <gestureRecognizers/>
                     <connections>
@@ -75,7 +74,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="thD-lK-fTO" secondAttribute="bottom" constant="8" id="GUe-vi-Ael"/>
                 <constraint firstItem="RQ8-QP-rP8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Hf2-DA-byd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RQ8-QP-rP8" secondAttribute="trailing" id="VQ7-gS-kyE"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="thD-lK-fTO" secondAttribute="trailing" constant="8" id="kQM-RX-f6T"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="thD-lK-fTO" secondAttribute="trailing" constant="20" id="kQM-RX-f6T"/>
                 <constraint firstItem="thD-lK-fTO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="tuR-EI-xvn"/>
                 <constraint firstItem="thD-lK-fTO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xb8-jb-85L"/>
             </constraints>

@@ -31,15 +31,76 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "fetchAPODPost(count:)"
-            landmarkType = "7">
+            endingLineNumber = "104">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E3EF3256-0B2A-4C76-B3D1-9085F0883FE2"
+            uuid = "8762D54C-AC00-47B9-B0D5-F5488865DB85"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "currentlyDisplayedPostIndex"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "8762D54C-AC00-47B9-B0D5-F5488865DB85 - 3d46ba3a93ee1586"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.currentlyDisplayedPostIndex.didset : Swift.Int"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/git/PrashPersonalApps/NASA_APOD_DEMO_APP/NASA_APOD_VIEWER_UIKIT/NASA_APOD_VIEWER_UIKIT/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "8762D54C-AC00-47B9-B0D5-F5488865DB85 - d5e87c0337876a13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.currentlyDisplayedPostIndex.didset : Swift.Int"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/git/PrashPersonalApps/NASA_APOD_DEMO_APP/NASA_APOD_VIEWER_UIKIT/NASA_APOD_VIEWER_UIKIT/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "8762D54C-AC00-47B9-B0D5-F5488865DB85 - 507a9bb785642f0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.currentlyDisplayedPostIndex.didset : Swift.Int"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/git/PrashPersonalApps/NASA_APOD_DEMO_APP/NASA_APOD_VIEWER_UIKIT/NASA_APOD_VIEWER_UIKIT/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25D07D09-3ADD-490B-953F-74F6B3D762A4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -47,41 +108,21 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "fetchAPODPost(count:)"
-            landmarkType = "7">
+            endingLineNumber = "97">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07E7EC63-C2A3-457B-926F-3B3E2655ADE7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NASA_APOD_VIEWER_UIKIT/CarouselView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "leftTapDetected(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2EBF77FC-AE94-4FF5-9DEC-6DDC7C233041"
+            uuid = "0B725572-DF34-4457-BF13-2417C537597D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NASA_APOD_VIEWER_UIKIT/CarouselView.swift"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/NASA_APOD_VIEWER_UIKIT-cmxovknrtboowsbmvgsrhxnhsygk/SourcePackages/checkouts/nasa-apod-dataservice/Sources/nasa-apod-dataservice/nasa_apod_dataservice.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "init?(coder:)"
-            landmarkType = "7">
+            startingLineNumber = "102"
+            endingLineNumber = "102">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

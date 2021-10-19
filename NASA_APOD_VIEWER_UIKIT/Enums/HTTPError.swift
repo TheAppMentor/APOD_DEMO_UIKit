@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum HTTPError : Error {
+enum HTTPError: Error {
     case someError
 }

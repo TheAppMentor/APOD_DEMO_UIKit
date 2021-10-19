@@ -19,8 +19,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9N-bH-qzR" customClass="CarouselView" customModule="NASA_APOD_VIEWER_UIKIT" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="-5" width="414" height="901"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Aid-Xw-iXl"/>
+                                    <outletCollection property="gestureRecognizers" destination="3B4-Jt-CjI" appends="YES" id="xPD-ZJ-acK"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54k-Hq-hPj" customClass="TitleView" customModule="NASA_APOD_VIEWER_UIKIT" customModuleProvider="target">
@@ -30,25 +32,46 @@
                                     <constraint firstAttribute="height" constant="88" id="oc4-v3-lzh"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9L-cc-3Q9">
+                                <rect key="frame" x="308.5" y="64" width="85.5" height="29"/>
+                                <color key="tintColor" red="0.95544956449999996" green="0.91268930270000004" blue="0.92217209509999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Auto Scroll" titleAlignment="automatic">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <color key="baseForegroundColor" red="0.058823529409999999" green="0.047058823530000002" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="autoScrollClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pdh-Ye-gmc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="54k-Hq-hPj" secondAttribute="trailing" constant="20" id="8Ja-Ei-cUn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S9L-cc-3Q9" secondAttribute="trailing" constant="20" id="8UW-OA-vtj"/>
                             <constraint firstItem="N9N-bH-qzR" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Ahq-jo-zMa"/>
                             <constraint firstItem="54k-Hq-hPj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="HPY-K9-NJ6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N9N-bH-qzR" secondAttribute="trailing" id="R6L-IZ-j93"/>
                             <constraint firstItem="54k-Hq-hPj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XlV-bc-xvV"/>
+                            <constraint firstItem="S9L-cc-3Q9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="aah-dN-oHN"/>
                             <constraint firstItem="N9N-bH-qzR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qLy-eW-yYI"/>
                             <constraint firstAttribute="top" secondItem="N9N-bH-qzR" secondAttribute="top" constant="5" id="tff-rw-3wr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoScrollButton" destination="S9L-cc-3Q9" id="fcC-29-SRh"/>
                         <outlet property="carouselView" destination="N9N-bH-qzR" id="Zi8-bL-VGR"/>
                         <outlet property="titleView" destination="54k-Hq-hPj" id="nIV-rL-p3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="3B4-Jt-CjI">
+                    <connections>
+                        <action selector="swipeGestureDetected:" destination="BYZ-38-t0r" id="TmY-AP-VBd"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
@@ -56,6 +79,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
