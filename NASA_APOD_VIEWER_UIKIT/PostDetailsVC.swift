@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import nasa_apod_dataservice
 
 class PostDetailsVC: UIViewController {
     
-    var postViewModel : PostViewModel?
+    var postViewModel : Post?
     
     @IBOutlet var postTitle: UILabel!
     @IBOutlet var postDate: UILabel!
     @IBOutlet var postCopyright: UILabel!
     @IBOutlet var postExplanation: UITextView!
      
-    convenience init(postViewModel : PostViewModel) {
+    convenience init(postViewModel : Post) {
         self.init()
         self.postViewModel = postViewModel
     }
@@ -25,7 +26,7 @@ class PostDetailsVC: UIViewController {
         super.viewDidLoad()
 
         postTitle.text = postViewModel?.title
-        postDate.text = postViewModel?.date
+        postDate.text = "Date"
         postCopyright.text = postViewModel?.copyright
         postExplanation.text = postViewModel?.explanation
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ImageManager {
     let imageCache = NSCache<NSString, NSData>()
@@ -13,7 +14,16 @@ struct ImageManager {
     static let shared = ImageManager()
 
     private init() {
-        imageCache.countLimit = 6
+        imageCache.countLimit = 10
+    }
+    
+    func getImageFromCache(url : URL) -> UIImage? {
+        guard let cachedImageData = imageCache.object(forKey: url.absoluteString as NSString),
+              let cachedImage = UIImage(data: cachedImageData as Data) else {
+                  return nil
+              }
+
+        return cachedImage
     }
     
     func getImageFromURL(url : URL) async throws -> Data {

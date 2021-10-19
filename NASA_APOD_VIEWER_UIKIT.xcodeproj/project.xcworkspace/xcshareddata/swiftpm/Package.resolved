@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "nasa-apod-dataservice",
+        "repositoryURL": "https://github.com/TheAppMentor/nasa-apod-dataservice.git",
+        "state": {
+          "branch": "master",
+          "revision": "5b51217665169461790699c0a0d2aaae509a511c",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

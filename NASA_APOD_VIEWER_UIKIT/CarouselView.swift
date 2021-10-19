@@ -92,8 +92,10 @@ enum Position {
 
 @objc
 protocol CarouselDelegate : AnyObject {
-    func getImage(index : Int) async -> UIImage
     var getTotalImageCount : Int { get }
+
+    func getImage(index : Int) async throws -> UIImage
+    func getImageFromCache(index : Int) -> UIImage?
 }
 
 class CarouselView: UIView {
@@ -103,17 +105,21 @@ class CarouselView: UIView {
     
     var presentedImageView : UIImageView!
     
-    fileprivate func addNewImageView(position : Position) -> UIImageView {
+    lazy var placeHolderImage : UIImage = {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .ultraLight, scale: .medium)
+        let placeHolderImage = UIImage(systemName: "photo", withConfiguration: largeConfig)?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        return placeHolderImage!
+    }()
+    
+    fileprivate func addNewImageView(position : Position, image : UIImage? = nil) -> UIImageView {
         
         let newView = UIImageView(frame: CGRect(origin:position.origin(frame: frame), size: frame.size))
         newView.clipsToBounds = true
 
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .ultraLight, scale: .medium)
-        let largeBoldDoc = UIImage(systemName: "photo", withConfiguration: largeConfig)?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
-        newView.image = largeBoldDoc
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        newView.image = image ?? placeHolderImage
         
         newView.contentMode = .scaleAspectFit
-        newView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(newView)
         
@@ -131,26 +137,32 @@ class CarouselView: UIView {
             return
         }
         
-        let leftImageView = addNewImageView(position: .left)
+        currentlyPresentedIndex = currentlyPresentedIndex - 1
         
         guard let delegate = delegate else {
             return
         }
+        
+        
+        let cachedImage = delegate.getImageFromCache(index: currentlyPresentedIndex)
+       
+        //let leftImageView = addNewImageView(position: .left, shouldShowPlaceHolder: !showPlaceHolder) //TODO: Ugly
+        let leftImageView = addNewImageView(position: .left, image : cachedImage)
+        leftImageView.contentMode = .scaleAspectFill
 
-        currentlyPresentedIndex = currentlyPresentedIndex - 1
-
-        Task {
-            let newImage = await delegate.getImage(index: currentlyPresentedIndex)
+        if (cachedImage == nil) {
             
-            leftImageView.contentMode = .scaleAspectFill
+        Task {
+            let newImage = try await delegate.getImage(index: currentlyPresentedIndex)
+            
             print("NOW I GOT THE REAL IMAGE")
             
-            UIView.transition(with: leftImageView,
-                              duration: 0.3,
-                              options: .transitionCrossDissolve,
-                              animations: { leftImageView.image = newImage },
-                              completion: nil)
-
+                UIView.transition(with: leftImageView,
+                                  duration: cachedImage == nil ? 0.3 : 0.0,
+                                  options: .transitionCrossDissolve,
+                                  animations: { leftImageView.image = newImage },
+                                  completion: nil)
+        }
         }
         
         sender.isEnabled = false
@@ -225,7 +237,7 @@ class CarouselView: UIView {
         currentlyPresentedIndex = currentlyPresentedIndex + 1
         
         Task {
-            let newImage = await delegate.getImage(index: currentlyPresentedIndex)
+            let newImage = try await delegate.getImage(index: currentlyPresentedIndex)
             rightImageView.contentMode = .scaleAspectFill
             print("NOW I GOT THE REAL IMAGE")
             
@@ -292,6 +304,28 @@ class CarouselView: UIView {
         }
     }
     
+    func populateImageInImageView(imageView : UIImageView) {
+        
+        guard let delegate = delegate else {
+            print("No Delegate .. am returning")
+            return
+        }
+        
+        Task {
+            let newImage = try await delegate.getImage(index: currentlyPresentedIndex)
+            imageView.contentMode = .scaleAspectFill
+            print("NOW I GOT THE REAL IMAGE ---- For this....")
+            
+            UIView.transition(with: imageView,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: { imageView.image = newImage },
+                              completion: nil)
+        }
+    }
+    
+    
+    
     func prepareNextImageView() {
         
     }
@@ -301,7 +335,6 @@ class CarouselView: UIView {
         super.init(frame: frame)
         setupFromNib()
         //setupImageView()
-
     }
     
     @objc func someFunc() {
@@ -312,16 +345,16 @@ class CarouselView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
-        setupImageView()
-        //Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.someFunc), userInfo: nil, repeats: true)
-       // Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.someFunc), userInfo: nil, repeats: true)
-
+        //setupImageView()
+       //Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.someFunc), userInfo: nil, repeats: true)
     }
     
     func setupImageView() {
         presentedImageView = addNewImageView(position: .center)
-        presentedImageView.contentMode = .scaleAspectFill
-        presentedImageView.image = UIImage(named: "testImage") //TODO: HACK !!
+        presentedImageView.contentMode = .scaleAspectFit
+        
+        populateImageInImageView(imageView: presentedImageView)
+        //presentedImageView.image = UIImage(named: "testImage") //TODO: HACK !!
 
         guard let imageCount = delegate?.getTotalImageCount,
         imageCount > 0 else {
