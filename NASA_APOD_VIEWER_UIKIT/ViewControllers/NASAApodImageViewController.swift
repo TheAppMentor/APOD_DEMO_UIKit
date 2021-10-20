@@ -28,31 +28,30 @@ class NASAApodImageViewController: UIViewController {
                         try await fetchAPODData()
                     } catch {
                         titleView.titleLabel.text = "Failed to fetch data from APOD API, please try later."
-
                     }
                 }
             }
         }
     }
 
-    func getPostURL(urlString: String) throws -> URL {
-        guard let url = URL(string: urlString) else {
-            throw ImageManagerError.urlConversionFailed
-        }
-        return url
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         autoScrollButton.isHidden = true
-
+        
         Task {
             do {
                 try await fetchAPODData()
                 carouselView.delegate = self
                 carouselView.setupImageView()
                 autoScrollButton.isHidden = false
+                
+                titleView.configure(viewModel: TitleViewModel(post: allPosts.first!, state: .displayTitle))
+                
             } catch APODServiceError.apodRateLimitHit {
                 titleView.titleLabel.text = ErrorMessage.rateLimitError
             } catch {
@@ -178,10 +177,16 @@ extension NASAApodImageViewController: CarouselDelegate {
               }
 
         do {
-            let fetchedImage = try await ImageManager.shared.getImageFromURL(url: postURL)
-            return fetchedImage
+            return try await ImageManager.shared.getImageFromURL(url: postURL)
         } catch {
             throw error
         }
+    }
+
+    func getPostURL(urlString: String) throws -> URL {
+        guard let url = URL(string: urlString) else {
+            throw ImageManagerError.urlConversionFailed
+        }
+        return url
     }
 }

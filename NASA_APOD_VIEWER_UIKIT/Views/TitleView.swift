@@ -8,6 +8,8 @@
 import UIKit
 
 class TitleView: UIView {
+    
+    private var viewModel: TitleViewModel?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var blurEffectView: UIView!
@@ -25,6 +27,26 @@ class TitleView: UIView {
         nibSetup()
     }
 
+    func configure(viewModel: TitleViewModel) {
+        self.viewModel = viewModel
+        //titleLabel.text = viewModel.title
+        
+        viewModel.title.bindAndFire { [unowned self] in self.titleLabel.text = $0 }
+        
+//        switch viewModel.state {
+//        case .displayTitle:
+//            loadingIndicator.isHidden = true
+//        case .loadingImage:
+//            loadingIndicator.isHidden = false
+//        case .loadingAll:
+//            titleLabel.text = "Loading..."
+//            loadingIndicator.isHidden = false
+//        case .error:
+//            titleLabel.text = "Error"
+//            loadingIndicator.isHidden = true
+//        }
+    }
+
     private func nibSetup() {
         backgroundColor = .clear
 
@@ -35,8 +57,6 @@ class TitleView: UIView {
 
         view.layer.cornerRadius = 20.0
         view.clipsToBounds = true
-
-        titleLabel.text = "Loading Image ..."
 
         addSubview(view)
     }

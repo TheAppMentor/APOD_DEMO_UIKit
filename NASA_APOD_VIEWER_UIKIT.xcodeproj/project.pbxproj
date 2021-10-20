@@ -28,6 +28,9 @@
 		2FC26EA8271EDADA003129FE /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EA7271EDADA003129FE /* Position.swift */; };
 		2FC26EAD271F033B003129FE /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EAC271F033B003129FE /* AppConstants.swift */; };
 		2FC26EAF271F0457003129FE /* ImageMangerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EAE271F0457003129FE /* ImageMangerError.swift */; };
+		2FC26EB2271FD493003129FE /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB1271FD493003129FE /* TitleViewModel.swift */; };
+		2FC26EB5271FD4BC003129FE /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */; };
+		2FC26EB727200F56003129FE /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB627200F56003129FE /* Dynamic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		2FC26EA7271EDADA003129FE /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		2FC26EAC271F033B003129FE /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		2FC26EAE271F0457003129FE /* ImageMangerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMangerError.swift; sourceTree = "<group>"; };
+		2FC26EB1271FD493003129FE /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		2FC26EB627200F56003129FE /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 			children = (
 				2F2E4C0A2719C3B40006B35D /* AppDelegate.swift */,
 				2F2E4C0C2719C3B40006B35D /* SceneDelegate.swift */,
+				2FC26EB3271FD4A4003129FE /* ViewModels */,
 				2FC26EAB271EDB42003129FE /* Utils & Constants */,
 				2FC26EAA271EDB18003129FE /* ViewControllers */,
 				2FC26EA9271EDAF4003129FE /* Enums */,
@@ -194,6 +201,16 @@
 			path = "Utils & Constants";
 			sourceTree = "<group>";
 		};
+		2FC26EB3271FD4A4003129FE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2FC26EB1271FD493003129FE /* TitleViewModel.swift */,
+				2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */,
+				2FC26EB627200F56003129FE /* Dynamic.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,7 +221,6 @@
 				2F2E4C032719C3B40006B35D /* Sources */,
 				2F2E4C042719C3B40006B35D /* Frameworks */,
 				2F2E4C052719C3B40006B35D /* Resources */,
-				2FC26EB0271F2B4D003129FE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -330,26 +346,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2FC26EB0271F2B4D003129FE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		2F2E4C032719C3B40006B35D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -360,6 +356,8 @@
 				2F6FAE00271DF7AA000675F3 /* HTTPError.swift in Sources */,
 				2FC26EAD271F033B003129FE /* AppConstants.swift in Sources */,
 				2FC26EAF271F0457003129FE /* ImageMangerError.swift in Sources */,
+				2FC26EB5271FD4BC003129FE /* PostDetailsViewModel.swift in Sources */,
+				2FC26EB727200F56003129FE /* Dynamic.swift in Sources */,
 				2F2E4C0B2719C3B40006B35D /* AppDelegate.swift in Sources */,
 				2F6FADFB271DC418000675F3 /* PostDetailsVC.swift in Sources */,
 				2F2E4C0D2719C3B40006B35D /* SceneDelegate.swift in Sources */,
@@ -367,6 +365,7 @@
 				2F6FAE05271ED47C000675F3 /* DateUtils.swift in Sources */,
 				2F6FADF3271DB814000675F3 /* CarouselView.swift in Sources */,
 				2F6FAE09271ED89E000675F3 /* TitleView.swift in Sources */,
+				2FC26EB2271FD493003129FE /* TitleViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
