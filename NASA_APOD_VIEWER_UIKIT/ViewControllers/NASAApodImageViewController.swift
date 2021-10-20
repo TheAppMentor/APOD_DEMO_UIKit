@@ -50,7 +50,7 @@ class NASAApodImageViewController: UIViewController {
                 carouselView.setupImageView()
                 autoScrollButton.isHidden = false
                 
-                titleView.configure(viewModel: TitleViewModel(post: allPosts.first!, state: .displayTitle))
+                titleView.configure(viewModel: PostTitleViewModel(post: allPosts.first!, state: .displayTitle))
                 
             } catch APODServiceError.apodRateLimitHit {
                 titleView.titleLabel.text = ErrorMessage.rateLimitError

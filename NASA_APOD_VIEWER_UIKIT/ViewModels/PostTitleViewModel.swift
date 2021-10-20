@@ -15,7 +15,7 @@ enum TitleState {
     case error
 }
 
-class TitleViewModel {
+class PostTitleViewModel {
     let title: Dynamic<String>
     let state: Dynamic<TitleState>
     

@@ -9,7 +9,7 @@ import UIKit
 
 class TitleView: UIView {
     
-    private var viewModel: TitleViewModel?
+    private var viewModel: PostTitleViewModel?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var blurEffectView: UIView!
@@ -27,7 +27,7 @@ class TitleView: UIView {
         nibSetup()
     }
 
-    func configure(viewModel: TitleViewModel) {
+    func configure(viewModel: PostTitleViewModel) {
         self.viewModel = viewModel
         //titleLabel.text = viewModel.title
         
