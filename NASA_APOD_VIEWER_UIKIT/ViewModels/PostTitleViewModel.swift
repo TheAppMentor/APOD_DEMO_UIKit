@@ -14,4 +14,8 @@ class PostTitleViewModel : ObservableObject {
     init(post: Post) {
         title = post.title
     }
+    
+    init(title : String) {
+        self.title = title
+    }
 }

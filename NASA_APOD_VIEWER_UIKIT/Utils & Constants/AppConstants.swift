@@ -6,7 +6,7 @@
 import Foundation
 
 struct Constants {
-    static let apiRequestBatchSize = 6
+    static let apiRequestBatchSize = 8
     static let autoScrollTimerDuration: TimeInterval = 10
     static let imageCachedCount = 12
     

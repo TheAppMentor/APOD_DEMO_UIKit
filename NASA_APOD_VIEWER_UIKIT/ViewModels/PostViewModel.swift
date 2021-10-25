@@ -20,7 +20,7 @@ class PostViewModel : ObservableObject {
     
     private var indexOfSelectedPost = 0 {
         didSet {
-            if indexOfSelectedPost == allPosts.count - 1 {
+            if indexOfSelectedPost == allPosts.count - 2 {
                 Task {
                     do {
                         try await fetchAPODData()
@@ -39,9 +39,9 @@ class PostViewModel : ObservableObject {
             try await fetchAPODData()
             configureViewModels()
         } catch APODServiceError.apodRateLimitHit {
-            self.postTitleViewModel.title = ErrorMessage.rateLimitError
+            postTitleViewModel = PostTitleViewModel(title: ErrorMessage.rateLimitError)
         } catch {
-            self.postTitleViewModel.title = ErrorMessage.genericAPIError
+            postTitleViewModel = PostTitleViewModel(title: ErrorMessage.genericAPIError)
         }
     }
     

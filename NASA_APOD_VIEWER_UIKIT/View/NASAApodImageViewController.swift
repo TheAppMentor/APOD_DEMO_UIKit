@@ -21,7 +21,6 @@ class NASAApodImageViewController: UIViewController {
     
     var postViewModel : PostViewModel! {
         didSet {
-            autoScrollButton.isHidden = false
             configureViewModels()
         }
     }
@@ -40,6 +39,7 @@ class NASAApodImageViewController: UIViewController {
                 guard self.postImageViewModel != nil else {
                     return
                 }
+                self.autoScrollButton.isHidden = false
                 self.carouselView.displayImage(image: self.postImageViewModel.postImage,
                                                isPlaceHolder: self.postImageViewModel.isPlaceHolder,
                                                scrollDirection: self.postImageViewModel.scrollDirection,
