@@ -2,15 +2,16 @@
 //  AppConstants.swift
 //  NASA_APOD_VIEWER_UIKIT
 //
-//  Created by Moorthy, Prashanth on 19/10/21.
-//
 
 import Foundation
 
 struct Constants {
-    static let apiRequestBatchSize = 5
+    static let apiRequestBatchSize = 6
     static let autoScrollTimerDuration: TimeInterval = 10
-    static let imageCachedCount = 10
+    static let imageCachedCount = 12
+    
+    static let stopScroll = "Stop Scroll"
+    static let autoScroll = "Auto Scroll"
 }
 
 struct ErrorMessage {

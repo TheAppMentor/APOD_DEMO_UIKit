@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  NASA_APOD_VIEWER_UIKIT
 //
-//  Created by Moorthy, Prashanth on 15/10/21.
+//  
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NASA_APOD_VIEWER_UIKIT
 //
-//  Created by Moorthy, Prashanth on 15/10/21.
+//
 //
 
 import UIKit
@@ -12,20 +12,27 @@ import nasa_apod_dataservice
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var postViewModel: PostViewModel!
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Initialize PostViewModel.
         Task {
-            postViewModel = await PostViewModel()
-            
-            let imageDisplayVC = UIApplication.shared.windows.first!.rootViewController as! NASAApodImageViewController
-            //imageDisplayVC.configure(postTitleViewModel: postViewModel.postTitleViewModel.value)
-            imageDisplayVC.postViewModel = postViewModel
-            print(imageDisplayVC)
+            do {
+                let postViewModel = try await PostViewModel()
+                
+                let rootWindow = UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }
+                
+                if let imageDisplayVC = rootWindow?.rootViewController as? NASAApodImageViewController {
+                    imageDisplayVC.postViewModel = postViewModel
+                }
+            } catch {
+                print("Failed to intialize NASA APOD API")
+            }
         }
         
         return true

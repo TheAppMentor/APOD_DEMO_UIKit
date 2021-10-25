@@ -2,8 +2,6 @@
 //  TitleView.swift
 //  NASA_APOD_VIEWER_UIKIT
 //
-//  Created by Moorthy, Prashanth on 17/10/21.
-//
 
 import UIKit
 import Combine
@@ -31,27 +29,6 @@ class TitleView: UIView {
 
     func configure(viewModel: PostTitleViewModel) {
         self.viewModel = viewModel
-        
-//        self.viewModel?.$pubTitle.sink(receiveValue: { val in
-//            self.titleLabel.text = val + "From Combine man"
-//        }).store(in: &cancellables)
-                
-        //titleLabel.text = viewModel.title
-        
-        //viewModel.title.bindAndFire { [unowned self] in self.titleLabel.text = $0 }
-        
-//        switch viewModel.state {
-//        case .displayTitle:
-//            loadingIndicator.isHidden = true
-//        case .loadingImage:
-//            loadingIndicator.isHidden = false
-//        case .loadingAll:
-//            titleLabel.text = "Loading..."
-//            loadingIndicator.isHidden = false
-//        case .error:
-//            titleLabel.text = "Error"
-//            loadingIndicator.isHidden = true
-//        }
     }
 
     private func nibSetup() {

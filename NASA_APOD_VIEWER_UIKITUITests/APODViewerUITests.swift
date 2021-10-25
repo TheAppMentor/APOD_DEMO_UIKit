@@ -2,7 +2,7 @@
 //  NASA_APOD_VIEWER_UIKITUITests.swift
 //  NASA_APOD_VIEWER_UIKITUITests
 //
-//  Created by Moorthy, Prashanth on 15/10/21.
+//  
 //
 
 import XCTest
