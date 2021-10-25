@@ -6,13 +6,28 @@
 //
 
 import UIKit
+import nasa_apod_dataservice
 
 // swiftlint:disable line_length
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var postViewModel: PostViewModel!
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialize PostViewModel.
+        Task {
+            postViewModel = await PostViewModel()
+            
+            let imageDisplayVC = UIApplication.shared.windows.first!.rootViewController as! NASAApodImageViewController
+            //imageDisplayVC.configure(postTitleViewModel: postViewModel.postTitleViewModel.value)
+            imageDisplayVC.postViewModel = Dynamic(postViewModel)
+            print(imageDisplayVC)
+        }
+        
         return true
     }
 

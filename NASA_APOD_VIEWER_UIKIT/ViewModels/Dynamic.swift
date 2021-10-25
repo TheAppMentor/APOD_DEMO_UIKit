@@ -16,12 +16,14 @@ class Dynamic<T> {
     }
     
     func bindAndFire(_ listener: Listener?) {
+        print("Dynamic : Setting the Listener : \(listener)")
         self.listener = listener
         listener?(value)
     }
     
     var value: T {
         didSet {
+            print("Dynamic : \(listener) : \(value)")
             listener?(value)
         }
     }

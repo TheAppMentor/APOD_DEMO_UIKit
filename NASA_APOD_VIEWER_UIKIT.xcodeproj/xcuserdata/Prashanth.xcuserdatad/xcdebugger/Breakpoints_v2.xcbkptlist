@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "89CD3B1B-D453-417C-B367-49AF7BD8949F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00EDA408-C1F9-40E5-8A2D-B6DF72D67942"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "swipeGestureDetected(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68C13A0F-9FD2-4AD6-9BD0-6F46428D864B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/ViewModels/Dynamic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "bind(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71115425-8224-4F00-806A-E86F814DC61A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/ViewModels/Dynamic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "value"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9AD2C004-2371-4488-ACC3-8E9BBB8549C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "configure(postTitleViewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14CBC912-8CD5-4854-B623-FE69C210BE7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "postViewModel"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B42BD190-D180-45B0-8408-6B8E341C2161"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/ViewModels/PostViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "changeValue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F63A489D-1D5A-4FC0-91B9-0B0AFB32EBE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/ViewModels/Dynamic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "value"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "NASAApodImageViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - ae30ab2d01b27f48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.postTitleViewModel.getter : Swift.Optional&lt;NASA_APOD_VIEWER_UIKIT.Dynamic&lt;NASA_APOD_VIEWER_UIKIT.PostTitleViewModel&gt;&gt;"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - 411f0ef07adb5744"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.postTitleViewModel.setter : Swift.Optional&lt;NASA_APOD_VIEWER_UIKIT.Dynamic&lt;NASA_APOD_VIEWER_UIKIT.PostTitleViewModel&gt;&gt;"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - 3da3bae070f0cb08"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.postTitleViewModel.modify : Swift.Optional&lt;NASA_APOD_VIEWER_UIKIT.Dynamic&lt;NASA_APOD_VIEWER_UIKIT.PostTitleViewModel&gt;&gt;"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - 6d209108ffec27ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.postTitleViewModel.modify : Swift.Optional&lt;NASA_APOD_VIEWER_UIKIT.Dynamic&lt;NASA_APOD_VIEWER_UIKIT.PostTitleViewModel&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - a93ea445ea142338"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "222">
+               </Location>
+               <Location
+                  uuid = "0D63C788-626A-4C4C-95A9-1CD30C9C9C5A - 13bca82d3aba80c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;NASA_APOD_VIEWER_UIKIT.NASAApodImageViewController&gt;"
+                  moduleName = "NASA_APOD_VIEWER_UIKIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prashanth/Desktop/git/APOD_DEMO_UIKit/NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "179">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20489070-A9A1-469F-87F2-2C7E44DA4C69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NASA_APOD_VIEWER_UIKIT/View/NASAApodImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

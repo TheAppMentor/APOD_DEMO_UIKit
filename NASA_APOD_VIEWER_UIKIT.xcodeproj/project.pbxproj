@@ -21,7 +21,6 @@
 		2F6FADFC271DC418000675F3 /* PostDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */; };
 		2F6FADFE271DF785000675F3 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADFD271DF785000675F3 /* ImageManager.swift */; };
 		2F6FAE00271DF7AA000675F3 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FADFF271DF7A9000675F3 /* HTTPError.swift */; };
-		2F6FAE03271E0252000675F3 /* nasa-apod-dataservice in Frameworks */ = {isa = PBXBuildFile; productRef = 2F6FAE02271E0252000675F3 /* nasa-apod-dataservice */; };
 		2F6FAE05271ED47C000675F3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FAE04271ED47C000675F3 /* DateUtils.swift */; };
 		2F6FAE09271ED89E000675F3 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FAE07271ED89D000675F3 /* TitleView.swift */; };
 		2F6FAE0A271ED89E000675F3 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FAE08271ED89D000675F3 /* TitleView.xib */; };
@@ -32,7 +31,7 @@
 		2FC26EB5271FD4BC003129FE /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */; };
 		2FC26EB727200F56003129FE /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB627200F56003129FE /* Dynamic.swift */; };
 		2FC26EB927202B54003129FE /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EB827202B54003129FE /* PostViewModel.swift */; };
-		2FC26EBB27202E19003129FE /* PostCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC26EBA27202E19003129FE /* PostCollection.swift */; };
+		8853AF9B2723279500F47F54 /* nasa-apod-dataservice in Frameworks */ = {isa = PBXBuildFile; productRef = 8853AF9A2723279500F47F54 /* nasa-apod-dataservice */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +80,6 @@
 		2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
 		2FC26EB627200F56003129FE /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		2FC26EB827202B54003129FE /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		2FC26EBA27202E19003129FE /* PostCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6FAE03271E0252000675F3 /* nasa-apod-dataservice in Frameworks */,
+				8853AF9B2723279500F47F54 /* nasa-apod-dataservice in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +115,7 @@
 				2F2E4C202719C3B80006B35D /* NASA_APOD_VIEWER_UIKITTests */,
 				2F2E4C2A2719C3B80006B35D /* NASA_APOD_VIEWER_UIKITUITests */,
 				2F2E4C082719C3B40006B35D /* Products */,
+				8853AF992723278E00F47F54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +136,8 @@
 				2F2E4C0C2719C3B40006B35D /* SceneDelegate.swift */,
 				2FC26EB3271FD4A4003129FE /* ViewModels */,
 				2FC26EAB271EDB42003129FE /* Utils & Constants */,
-				2FC26EAA271EDB18003129FE /* ViewControllers */,
 				2FC26EA9271EDAF4003129FE /* Enums */,
-				2FC26EA6271ED9BA003129FE /* Views */,
+				2FC26EA6271ED9BA003129FE /* View */,
 				2F2E4C102719C3B40006B35D /* Main.storyboard */,
 				2F2E4C132719C3B80006B35D /* Assets.xcassets */,
 				2F2E4C152719C3B80006B35D /* LaunchScreen.storyboard */,
@@ -164,15 +162,18 @@
 			path = NASA_APOD_VIEWER_UIKITUITests;
 			sourceTree = "<group>";
 		};
-		2FC26EA6271ED9BA003129FE /* Views */ = {
+		2FC26EA6271ED9BA003129FE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2F2E4C0E2719C3B40006B35D /* NASAApodImageViewController.swift */,
+				2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */,
+				2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */,
 				2F6FAE07271ED89D000675F3 /* TitleView.swift */,
 				2F6FAE08271ED89D000675F3 /* TitleView.xib */,
 				2F6FADF1271DB814000675F3 /* CarouselView.swift */,
 				2F6FADF2271DB814000675F3 /* CarouselView.xib */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2FC26EA9271EDAF4003129FE /* Enums */ = {
@@ -183,16 +184,6 @@
 				2FC26EAE271F0457003129FE /* ImageMangerError.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		2FC26EAA271EDB18003129FE /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				2F2E4C0E2719C3B40006B35D /* NASAApodImageViewController.swift */,
-				2F6FADF9271DC417000675F3 /* PostDetailsVC.swift */,
-				2F6FADFA271DC418000675F3 /* PostDetailsVC.xib */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		2FC26EAB271EDB42003129FE /* Utils & Constants */ = {
@@ -209,12 +200,18 @@
 			isa = PBXGroup;
 			children = (
 				2FC26EB1271FD493003129FE /* PostTitleViewModel.swift */,
-				2FC26EBA27202E19003129FE /* PostCollection.swift */,
 				2FC26EB827202B54003129FE /* PostViewModel.swift */,
 				2FC26EB4271FD4BC003129FE /* PostDetailsViewModel.swift */,
 				2FC26EB627200F56003129FE /* Dynamic.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8853AF992723278E00F47F54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +231,7 @@
 			);
 			name = NASA_APOD_VIEWER_UIKIT;
 			packageProductDependencies = (
-				2F6FAE02271E0252000675F3 /* nasa-apod-dataservice */,
+				8853AF9A2723279500F47F54 /* nasa-apod-dataservice */,
 			);
 			productName = NASA_APOD_VIEWER_UIKIT;
 			productReference = 2F2E4C072719C3B40006B35D /* NASA_APOD_VIEWER_UIKIT.app */;
@@ -366,7 +363,6 @@
 				2FC26EB5271FD4BC003129FE /* PostDetailsViewModel.swift in Sources */,
 				2FC26EB727200F56003129FE /* Dynamic.swift in Sources */,
 				2F2E4C0B2719C3B40006B35D /* AppDelegate.swift in Sources */,
-				2FC26EBB27202E19003129FE /* PostCollection.swift in Sources */,
 				2F6FADFB271DC418000675F3 /* PostDetailsVC.swift in Sources */,
 				2F2E4C0D2719C3B40006B35D /* SceneDelegate.swift in Sources */,
 				2F6FADFE271DF785000675F3 /* ImageManager.swift in Sources */,
@@ -753,7 +749,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F6FAE02271E0252000675F3 /* nasa-apod-dataservice */ = {
+		8853AF9A2723279500F47F54 /* nasa-apod-dataservice */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F6FAE01271E0252000675F3 /* XCRemoteSwiftPackageReference "nasa-apod-dataservice" */;
 			productName = "nasa-apod-dataservice";

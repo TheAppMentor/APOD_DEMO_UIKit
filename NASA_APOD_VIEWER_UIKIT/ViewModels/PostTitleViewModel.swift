@@ -15,8 +15,13 @@ enum TitleState {
     case error
 }
 
-class PostTitleViewModel {
-    let title: Dynamic<String>
+import Combine
+
+class PostTitleViewModel : ObservableObject {
+    
+    @Published var pubTitle : String
+    @Published var pubState : TitleState
+    var title: Dynamic<String>
     let state: Dynamic<TitleState>
     
     var someTimer : Timer?
@@ -24,13 +29,18 @@ class PostTitleViewModel {
     init(post: Post, state: TitleState) {
         title = Dynamic(post.title)
         self.state = Dynamic(state)
-    
-        someTimer = .scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeValue), userInfo: nil, repeats: true)
+        
+        self.pubTitle = post.title
+        self.pubState = state
+
+//        DispatchQueue.main.async {
+//            self.someTimer = .scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeValue), userInfo: nil, repeats: true)
+//        }
     }
     
-    @objc func changeValue() {
-        let some = [0,1,2,3,4,5,10].randomElement()!
-        print("View Model : Change Value : \(some)")
-        title.value = "\(some)"
-    }
+//    @objc func changeValue() {
+//        let some = [0,1,2,3,4,5,10].randomElement()!
+//        print("View Model : Change Value : \(some)")
+//        title.value = "\(some)"
+//    }
 }

@@ -7,8 +7,24 @@
 
 import UIKit
 import nasa_apod_dataservice
+import Combine
+
 
 class NASAApodImageViewController: UIViewController {
+        
+    
+    var postViewModel : Dynamic<PostViewModel>! {
+        didSet {
+            configure(postTitleViewModel: postViewModel.value.postTitleViewModel)
+        }
+    }
+        
+    private var postTitleViewModel : Dynamic<PostTitleViewModel>!
+    
+    func configure(postTitleViewModel : Dynamic<PostTitleViewModel>) {
+        self.postTitleViewModel = postTitleViewModel
+    
+    }
 
     var allPosts = [Post]()
 
@@ -27,7 +43,7 @@ class NASAApodImageViewController: UIViewController {
                     do {
                         try await fetchAPODData()
                     } catch {
-                        titleView.titleLabel.text = "Failed to fetch data from APOD API, please try later."
+                        //titleView.titleLabel.text = "Failed to fetch data from APOD API, please try later."
                     }
                 }
             }
@@ -37,6 +53,7 @@ class NASAApodImageViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    private var cancellables: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,19 +66,64 @@ class NASAApodImageViewController: UIViewController {
                 carouselView.delegate = self
                 carouselView.setupImageView()
                 autoScrollButton.isHidden = false
+                                
+                //titleView.configure(viewModel: PostTitleViewModel(post: allPosts.first!, state: .displayTitle))
                 
-                titleView.configure(viewModel: PostTitleViewModel(post: allPosts.first!, state: .displayTitle))
+                postViewModel.value.postboy.$pubTitle.sink { val in
+                    self.titleView.titleLabel.text = val
+                }
+                .store(in: &cancellables)
+                
+                postViewModel.value.postboy.$pubState.sink { state in
+                    
+                    
+                    
+                    if (state == .loadingAll || state == .loadingImage) {
+                        self.titleView.loadingIndicator.isHidden = false
+                        self.titleView.loadingIndicator.startAnimating()
+                        return
+                    }
+                    
+                    if self.titleView.loadingIndicator.isAnimating {
+                        self.titleView.loadingIndicator.stopAnimating()
+                        self.titleView.loadingIndicator.isHidden = true
+                    }
+                    
+                    
+                }.store(in: &cancellables)
+                
+                                
+                
+                self.postTitleViewModel.value.title.bindAndFire { value in
+                    print("From binding")
+                    self.titleView.titleLabel.text = value
+                }
+
                 
             } catch APODServiceError.apodRateLimitHit {
-                titleView.titleLabel.text = ErrorMessage.rateLimitError
+                //titleView.titleLabel.text = ErrorMessage.rateLimitError
             } catch {
-                titleView.titleLabel.text = ErrorMessage.genericAPIError
+                //titleView.titleLabel.text = ErrorMessage.genericAPIError
             }
         }
 
         titleView.onTapAction = openDetailPanel
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard postViewModel != nil else {
+            return
+        }
+        
+//        self.postTitleViewModel.value.title.bindAndFire { value in
+//            print("From binding")
+//            self.titleView.titleLabel.text = value
+//        }
+
+    }
+    
     func fetchAPODData() async throws {
         do {
             let fetchedPosts = try await NASA_APOD_Service().fetchAPODPost(count: Constants.apiRequestBatchSize)
@@ -139,6 +201,12 @@ class NASAApodImageViewController: UIViewController {
     }
 }
 
+
+
+
+
+
+
 extension NASAApodImageViewController: CarouselDelegate {
 
     func getImageFromCache(index: Int) -> UIImage? {
@@ -150,7 +218,7 @@ extension NASAApodImageViewController: CarouselDelegate {
         currentlyDisplayedPostIndex = index
 
         DispatchQueue.main.async {
-            self.titleView.titleLabel.text = self.allPosts[self.currentlyDisplayedPostIndex].title
+            //self.titleView.titleLabel.text = self.allPosts[self.currentlyDisplayedPostIndex].title
         }
         return ImageManager.shared.getImageFromCache(url: postURL)
     }
@@ -167,7 +235,7 @@ extension NASAApodImageViewController: CarouselDelegate {
 
         currentlyDisplayedPostIndex = index
         DispatchQueue.main.async {
-            self.titleView.titleLabel.text = self.allPosts[self.currentlyDisplayedPostIndex].title
+            //self.titleView.titleLabel.text = self.allPosts[self.currentlyDisplayedPostIndex].title
         }
 
         guard index < allPosts.count,

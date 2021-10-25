@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 class TitleView: UIView {
     
     private var viewModel: PostTitleViewModel?
@@ -26,12 +26,19 @@ class TitleView: UIView {
         super.init(coder: aDecoder)
         nibSetup()
     }
+    
+    private var cancellables: Set<AnyCancellable> = []
 
     func configure(viewModel: PostTitleViewModel) {
         self.viewModel = viewModel
+        
+//        self.viewModel?.$pubTitle.sink(receiveValue: { val in
+//            self.titleLabel.text = val + "From Combine man"
+//        }).store(in: &cancellables)
+                
         //titleLabel.text = viewModel.title
         
-        viewModel.title.bindAndFire { [unowned self] in self.titleLabel.text = $0 }
+        //viewModel.title.bindAndFire { [unowned self] in self.titleLabel.text = $0 }
         
 //        switch viewModel.state {
 //        case .displayTitle:

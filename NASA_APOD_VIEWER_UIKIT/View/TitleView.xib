@@ -48,13 +48,13 @@
                     <rect key="frame" x="20" y="8" width="635" height="266"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a really really long title that should span Two lines" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmI-kd-ViT">
-                            <rect key="frame" x="0.0" y="123" width="635" height="20.5"/>
+                            <rect key="frame" x="0.0" y="123" width="583" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="snp-Wp-51V">
-                            <rect key="frame" x="0.0" y="111" width="44" height="44"/>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="snp-Wp-51V">
+                            <rect key="frame" x="591" y="111" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="Nf9-4Z-aa5"/>
                                 <constraint firstAttribute="width" secondItem="snp-Wp-51V" secondAttribute="height" multiplier="1:1" id="yPv-rE-upd"/>
