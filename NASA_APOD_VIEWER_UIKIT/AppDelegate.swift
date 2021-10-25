@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let imageDisplayVC = UIApplication.shared.windows.first!.rootViewController as! NASAApodImageViewController
             //imageDisplayVC.configure(postTitleViewModel: postViewModel.postTitleViewModel.value)
-            imageDisplayVC.postViewModel = Dynamic(postViewModel)
+            imageDisplayVC.postViewModel = postViewModel
             print(imageDisplayVC)
         }
         

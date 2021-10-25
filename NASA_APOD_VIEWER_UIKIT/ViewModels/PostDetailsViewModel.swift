@@ -7,17 +7,19 @@
 
 import Foundation
 import nasa_apod_dataservice
+import Combine
 
-class PostDetailsViewModel {
-    let title: Dynamic<String>
-    let dateString: Dynamic<String>
-    let copyright: Dynamic<String?>
-    let explanation: Dynamic<String>
+//TODO: Does these need to be published?
+class PostDetailsViewModel : ObservableObject {
+    @Published var title: String
+    @Published var dateString: String
+    @Published var copyright: String?
+    @Published var explanation: String
     
     init(post : Post) {
-        self.title = Dynamic(post.title)
-        self.dateString = Dynamic(DateUtils.getStringFromDate(date: post.date))
-        self.copyright = Dynamic(post.copyright)
-        self.explanation = Dynamic(post.explanation)
+        self.title = post.title
+        self.dateString = DateUtils.getStringFromDate(date: post.date)
+        self.copyright = post.copyright
+        self.explanation = post.explanation
     }
 }

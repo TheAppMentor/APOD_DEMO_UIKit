@@ -9,61 +9,34 @@ import Foundation
 import nasa_apod_dataservice
 import UIKit
 
-class PostViewModel {
+class PostViewModel : ObservableObject {
     
     private let apodService = NASA_APOD_Service()
     private var allPosts = [Post]()
     
-    private var indexOfSelectedPost = 0
+    private var indexOfSelectedPost = 0 {
+        
+        didSet {
+            if indexOfSelectedPost == allPosts.count - 1 {
+                Task {
+                    do {
+                        try await fetchAPODData()
+                    } catch {
+                        //titleView.titleLabel.text = "Failed to fetch data from APOD API, please try later."
+                    }
+                }
+            }
+        }
+    }
     
-    var postboy : PostTitleViewModel!
-    
-    var postTitleViewModel : Dynamic<PostTitleViewModel>!
-    var postDetailsViewModel : Dynamic<PostDetailsViewModel>!
-    var postImageViewModel : Dynamic<PostImageViewModel>!
-    
-    var someTimer : Timer!
+    @Published var postTitleViewModel : PostTitleViewModel!
+    @Published var postDetailsViewModel : PostDetailsViewModel!
+    @Published var postImageViewModel : PostImageViewModel!
     
     init() async {
         do {
-            print("PostViewModel : Init was called")
-            let fetchedPosts = try await apodService.fetchAPODPost(count: Constants.apiRequestBatchSize)
-            allPosts += fetchedPosts
-            
-            let currentPost = allPosts[indexOfSelectedPost]
-            
-            //TODO: Need a correct loading state for initial load.
-            postTitleViewModel = Dynamic(PostTitleViewModel(post: currentPost, state: .loadingImage))
-            print("PostViewModel : title view model is ready")
-
-            postboy = PostTitleViewModel(post: currentPost, state: .loadingImage)
-            
-            self.postTitleViewModel.bindAndFire { [unowned self] in
-                self.postTitleViewModel.value.title = $0.title 
-            }
-
-            postDetailsViewModel = Dynamic(PostDetailsViewModel(post: currentPost))
-            print("PostViewModel : details view model is ready")
-
-            
-            // We dont want image fetching to block.
-            //TODO: Fix this.
-            // Add place holder image here.
-            Task {
-                let postImageViewModel = try! await PostImageViewModel(post: currentPost)
-                self.postImageViewModel = Dynamic(postImageViewModel)
-                print("PostViewModel : Now I have the image model")
-            }
-            print("PostViewModel : Exiting the Init method")
-            
-            DispatchQueue.main.async { //TODO: check Self
-                self.someTimer = .scheduledTimer(timeInterval: 3.0,
-                                                 target: self,
-                                                 selector: #selector(self.changeValue),
-                                                 userInfo: nil,
-                                                 repeats: true)
-            }
-            
+            try await fetchAPODData()
+            configureViewModels()
         } catch {
             assertionFailure()
             //TODO: Also Handle the offline scenario.
@@ -75,30 +48,61 @@ class PostViewModel {
         return allPosts[indexOfSelectedPost]
     }
     
-    @objc func changeValue() {
-        let some = [0,1,2,3,4,5,10].randomElement()!
-        print("View Model : Change Value : \(some)")
-        self.postTitleViewModel.value.title = Dynamic("\(some)")
-        self.postboy.pubTitle = "\(some) = From Combine"
-        self.postboy.pubState = [TitleState.loadingImage, TitleState.displayTitle].randomElement()!
-        print("Pub State is : \(self.postboy.pubState)")
+    func configureViewModels() {
+        let currentPost = allPosts[indexOfSelectedPost]
+        
+        //TODO: Need a correct loading state for initial load.
+        postTitleViewModel = PostTitleViewModel(post: currentPost, state: .loadingImage)
+        print("PostViewModel : title view model is ready")
+        
+        postDetailsViewModel = PostDetailsViewModel(post: currentPost)
+        
+        //postImageViewModel = PostImageViewModel(withPlaceHolder: true)
+        // We dont want image fetching to block.
+        //TODO: Fix this.
+        // Add place holder image here.
+        Task {
+            let postImageViewModel = try! await PostImageViewModel(post: currentPost)
+            self.postImageViewModel = postImageViewModel
+            print("PostViewModel : Now I have the image model")
+        }
+        print("PostViewModel : Exiting the Init method")
     }
-}
-
-class PostImageViewModel {
-    var postImage : Dynamic<UIImage>
     
-    init(post: Post) async throws {
+    func getNextPost() {
+        indexOfSelectedPost += 1
+        configureViewModels()
+        
+        // Fetch Next batch of Posts
+    }
+    
+    func getPreviousPost() {
+        if indexOfSelectedPost == 0 {
+            return
+        }
+        indexOfSelectedPost -= 1
+        configureViewModels()
+    }
+    
+    func fetchAPODData() async throws {
         do {
-            guard var imageURL = post.imageURLString else {
-                throw ImageManagerError.urlConversionFailed //TODO:
-            }
-            
-            let dummyImageURL = URL(string: "https://picsum.photos/200/300")!
-            let postImage = try await ImageManager.shared.getImageFromURL(url: dummyImageURL)
-            self.postImage = Dynamic(postImage)
+            let fetchedPosts = try await NASA_APOD_Service().fetchAPODPost(count: Constants.apiRequestBatchSize)
+            allPosts += fetchedPosts
         } catch {
-            throw ImageManagerError.urlConversionFailed
+            throw error
+        }
+        
+        let sequence = AnySequence(allPosts)
+        Task(priority: .userInitiated) {
+            for post in sequence.dropFirst() {  // First Image is fetched manually
+                guard let urlString = post.imageURLString,
+                      let url = URL(string: urlString),
+                      let _ = try? await ImageManager.shared.getImageFromURL(url: url) else {
+                          continue
+                      }
+            }
         }
     }
 }
+
+

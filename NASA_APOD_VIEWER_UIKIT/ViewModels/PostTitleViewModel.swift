@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import nasa_apod_dataservice
 
 enum TitleState {
@@ -15,32 +16,13 @@ enum TitleState {
     case error
 }
 
-import Combine
-
 class PostTitleViewModel : ObservableObject {
     
-    @Published var pubTitle : String
-    @Published var pubState : TitleState
-    var title: Dynamic<String>
-    let state: Dynamic<TitleState>
+    @Published var title: String
+    @Published var state: TitleState
     
-    var someTimer : Timer?
-
     init(post: Post, state: TitleState) {
-        title = Dynamic(post.title)
-        self.state = Dynamic(state)
-        
-        self.pubTitle = post.title
-        self.pubState = state
-
-//        DispatchQueue.main.async {
-//            self.someTimer = .scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeValue), userInfo: nil, repeats: true)
-//        }
+        title = post.title
+        self.state = state
     }
-    
-//    @objc func changeValue() {
-//        let some = [0,1,2,3,4,5,10].randomElement()!
-//        print("View Model : Change Value : \(some)")
-//        title.value = "\(some)"
-//    }
 }

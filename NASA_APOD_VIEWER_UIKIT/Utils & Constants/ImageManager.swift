@@ -28,6 +28,7 @@ struct ImageManager {
     @discardableResult
     func getImageFromURL(url: URL) async throws -> UIImage {
         if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
+            print(" =========> Returning Cached Image !!!! ")
             return cachedImage
         }
 
@@ -41,6 +42,7 @@ struct ImageManager {
             guard let image = UIImage(data: data as Data) else {
                 throw ImageManagerError.unknownError
             }
+            print("Cache is Warm : \(url)")
             imageCache.setObject(image, forKey: url.absoluteString as NSString)
             return image
 

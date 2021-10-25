@@ -10,30 +10,31 @@ import nasa_apod_dataservice
 
 class PostDetailsVC: UIViewController {
 
-    var postViewModel: Post?
+    var postDetailsViewModel : PostDetailsViewModel?
 
     @IBOutlet var postTitle: UILabel!
     @IBOutlet var postDate: UILabel!
     @IBOutlet var postCopyright: UILabel!
     @IBOutlet var postExplanation: UITextView!
 
-    convenience init(postViewModel: Post) {
+    convenience init(postDetailsViewModel: PostDetailsViewModel) {
         self.init()
-        self.postViewModel = postViewModel
+        self.postDetailsViewModel = postDetailsViewModel
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        postTitle.text = postViewModel?.title
-        postCopyright.text = postViewModel?.copyright
-        postExplanation.text = postViewModel?.explanation
-
-        if let validDate = postViewModel?.date {
-            postDate.text = DateUtils.getStringFromDate(date: validDate)
-
+        
+        guard let postDetailsViewModel = postDetailsViewModel else {
+            return
         }
-
+        configure(postDetailsViewModel: postDetailsViewModel)
     }
-
+    
+    func configure(postDetailsViewModel : PostDetailsViewModel) {
+        postTitle.text = postDetailsViewModel.title
+        postCopyright.text = postDetailsViewModel.copyright
+        postExplanation.text = postDetailsViewModel.explanation
+        postDate.text = postDetailsViewModel.dateString
+    }
 }

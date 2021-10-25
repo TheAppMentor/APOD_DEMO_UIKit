@@ -9,6 +9,14 @@ import UIKit
 
 @objc
 protocol CarouselDelegate: AnyObject {
+    
+    func rightTapDetected()
+    func leftTapDetected()
+    
+//    func getNextImage() -> UIImage
+//    func getPreviousImage() -> UIImage?
+    
+    
     var getTotalImageCount: Int { get }
 
     func getImage(index: Int) async throws -> UIImage
@@ -17,10 +25,18 @@ protocol CarouselDelegate: AnyObject {
 
 class CarouselView: UIView {
 
-    var currentlyPresentedIndex = 0
+    //var currentlyPresentedIndex = 0
     @IBOutlet weak var delegate: CarouselDelegate?
 
     var presentedImageView: UIImageView!
+    var currentImage : UIImage! {
+        didSet {
+            DispatchQueue.main.async {
+                self.presentedImageView.contentMode = .scaleAspectFill
+                self.presentedImageView.image = self.currentImage
+            }
+        }
+    }
 
     lazy var placeHolderImage: UIImage = {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 20,
@@ -31,6 +47,10 @@ class CarouselView: UIView {
                                                                                       renderingMode: .alwaysOriginal)
         return placeHolderImage!
     }()
+    
+    func displayImage(image: UIImageView, isPlaceHolder: Bool){
+        
+    }
 
     fileprivate func addNewImageView(position: Position, image: UIImage? = nil) -> UIImageView {
 
@@ -52,132 +72,135 @@ class CarouselView: UIView {
     @IBAction func leftTapDetected(_ sender: UITapGestureRecognizer) {
 
         // Check if we are at the left most image.
-        guard currentlyPresentedIndex != 0,
-              let delegate = delegate,
-              let presentedImageView = presentedImageView else {
-                  return
-              }
+//        guard currentlyPresentedIndex != 0,
+//              let delegate = delegate,
+//              let presentedImageView = presentedImageView else {
+//                  return
+//              }
+        
+        delegate!.leftTapDetected()
 
-        currentlyPresentedIndex -= 1
-
-        let cachedImage = delegate.getImageFromCache(index: currentlyPresentedIndex)
-        let leftImageView = addNewImageView(position: .left, image: cachedImage)
-        //leftImageView.contentMode = .scaleAspectFill
-
-        if cachedImage == nil {
-            populateImage(imageView: leftImageView, shouldAnimate: true)
-        }
-
-        // Disable User interation when animation is in progress.
-        sender.isEnabled = false
-
-        // Animate the right View (expand)
-        let leftFilteredConstraints = constraints.filter { $0.identifier == "leftTrailing" }
-        layoutIfNeeded()
-
-        if let leftTrailingConstriant = leftFilteredConstraints.first {
-            removeConstraint(leftTrailingConstriant)
-
-            // Add a new leading constraint. This caused the view to move.
-            let trailingConstraint = NSLayoutConstraint(item: leftImageView,
-                                                        attribute: .trailing,
-                                                        relatedBy: .equal,
-                                                        toItem: self,
-                                                        attribute: .trailing,  // superview, trailing
-                                                        multiplier: 1,
-                                                        constant: 0)
-            trailingConstraint.identifier = "UpdatedLeftTrailingConstraint"
-            addConstraint(trailingConstraint)
-        }
-
-        // This is to slide the center view to the right
-        let  leadingConstraint = NSLayoutConstraint(item: presentedImageView,
-                                                    attribute: .leading,
-                                                    relatedBy: .equal,
-                                                    toItem: self,
-                                                    attribute: .trailing,
-                                                    multiplier: 1,
-                                                    constant: 0)
-        addConstraint(leadingConstraint)
-
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut,
-                       animations: {
-            // Animate and apply the constraints.
-            self.layoutIfNeeded()
-        },
-                       completion: {_ in
-            // Remove the old Center View
-            self.presentedImageView.removeFromSuperview()
-
-            self.removeConstraint(name: "UpdatedLeftTrailingConstraint")
-
-            self.presentedImageView = leftImageView
-
-            sender.isEnabled = true
-        })
+//        currentlyPresentedIndex -= 1
+//
+//        let cachedImage = delegate!.getImageFromCache(index: currentlyPresentedIndex)
+//        let leftImageView = addNewImageView(position: .left, image: cachedImage)
+//        //leftImageView.contentMode = .scaleAspectFill
+//
+//        if cachedImage == nil {
+//            populateImage(imageView: leftImageView, shouldAnimate: true)
+//        }
+//
+//        // Disable User interation when animation is in progress.
+//        sender.isEnabled = false
+//
+//        // Animate the right View (expand)
+//        let leftFilteredConstraints = constraints.filter { $0.identifier == "leftTrailing" }
+//        layoutIfNeeded()
+//
+//        if let leftTrailingConstriant = leftFilteredConstraints.first {
+//            removeConstraint(leftTrailingConstriant)
+//
+//            // Add a new leading constraint. This caused the view to move.
+//            let trailingConstraint = NSLayoutConstraint(item: leftImageView,
+//                                                        attribute: .trailing,
+//                                                        relatedBy: .equal,
+//                                                        toItem: self,
+//                                                        attribute: .trailing,  // superview, trailing
+//                                                        multiplier: 1,
+//                                                        constant: 0)
+//            trailingConstraint.identifier = "UpdatedLeftTrailingConstraint"
+//            addConstraint(trailingConstraint)
+//        }
+//
+//        // This is to slide the center view to the right
+//        let  leadingConstraint = NSLayoutConstraint(item: presentedImageView,
+//                                                    attribute: .leading,
+//                                                    relatedBy: .equal,
+//                                                    toItem: self,
+//                                                    attribute: .trailing,
+//                                                    multiplier: 1,
+//                                                    constant: 0)
+//        addConstraint(leadingConstraint)
+//
+//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut,
+//                       animations: {
+//            // Animate and apply the constraints.
+//            self.layoutIfNeeded()
+//        },
+//                       completion: {_ in
+//            // Remove the old Center View
+//            self.presentedImageView.removeFromSuperview()
+//
+//            self.removeConstraint(name: "UpdatedLeftTrailingConstraint")
+//
+//            self.presentedImageView = leftImageView
+//
+//            sender.isEnabled = true
+//        })
     }
 
     @objc
     @IBAction func rightTapDetected(_ sender: UITapGestureRecognizer) {
 
-        guard let delegate = delegate,
-              let presentedImageView = presentedImageView else {
-                  return
-              }
-
-        currentlyPresentedIndex += 1
-
-        let cachedImage = delegate.getImageFromCache(index: currentlyPresentedIndex)
-        let rightImageView = addNewImageView(position: .right, image: cachedImage)
-
-        if cachedImage == nil {
-            populateImage(imageView: rightImageView, shouldAnimate: true)
+        guard let delegate = delegate else {
+            return
         }
 
-        sender.isEnabled = false
-
-        // Animate the right View (expand)
-        let rightFilteredConstraints = constraints.filter { $0.identifier == "rightLeading" }
-        layoutIfNeeded()
-
-        if let rightLeadingConstriant = rightFilteredConstraints.first {
-            removeConstraint(rightLeadingConstriant)
-
-            // Add a new leading constraint. This caused the view to move.
-            let leadingConstraint = NSLayoutConstraint(item: rightImageView,
-                                                       attribute: .leading,
-                                                       relatedBy: .equal,
-                                                       toItem: self,
-                                                       attribute: .leading,  // superview, leading
-                                                       multiplier: 1,
-                                                       constant: 0)
-            leadingConstraint.identifier = "UpdatedRightLeadingConstraint"
-            addConstraint(leadingConstraint)
-        }
-
-        // This is to slide the center view to the left
-        let  trailingConstraint = NSLayoutConstraint(item: presentedImageView,
-                                                     attribute: .trailing,
-                                                     relatedBy: .equal,
-                                                     toItem: self,
-                                                     attribute: .leading,
-                                                     multiplier: 1,
-                                                     constant: 0)
-        addConstraint(trailingConstraint)
-
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-            // Animate and apply the constraints.
-            self.layoutIfNeeded()
-        }, completion: { [self] _ in
-            // Remove the old Center View
-            self.presentedImageView.removeFromSuperview()
-
-            removeConstraint(name: "UpdatedRightLeadingConstraint")
-
-            self.presentedImageView = rightImageView
-            sender.isEnabled = true
-
-        })
+        delegate.rightTapDetected()
+        
+//        currentlyPresentedIndex += 1
+//
+//        let cachedImage = delegate.getImageFromCache(index: currentlyPresentedIndex)
+//        let rightImageView = addNewImageView(position: .right, image: cachedImage)
+//
+//        if cachedImage == nil {
+//            populateImage(imageView: rightImageView, shouldAnimate: true)
+//        }
+//
+//        sender.isEnabled = false
+//
+//        // Animate the right View (expand)
+//        let rightFilteredConstraints = constraints.filter { $0.identifier == "rightLeading" }
+//        layoutIfNeeded()
+//
+//        if let rightLeadingConstriant = rightFilteredConstraints.first {
+//            removeConstraint(rightLeadingConstriant)
+//
+//            // Add a new leading constraint. This caused the view to move.
+//            let leadingConstraint = NSLayoutConstraint(item: rightImageView,
+//                                                       attribute: .leading,
+//                                                       relatedBy: .equal,
+//                                                       toItem: self,
+//                                                       attribute: .leading,  // superview, leading
+//                                                       multiplier: 1,
+//                                                       constant: 0)
+//            leadingConstraint.identifier = "UpdatedRightLeadingConstraint"
+//            addConstraint(leadingConstraint)
+//        }
+//
+//        // This is to slide the center view to the left
+//        let  trailingConstraint = NSLayoutConstraint(item: presentedImageView,
+//                                                     attribute: .trailing,
+//                                                     relatedBy: .equal,
+//                                                     toItem: self,
+//                                                     attribute: .leading,
+//                                                     multiplier: 1,
+//                                                     constant: 0)
+//        addConstraint(trailingConstraint)
+//
+//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+//            // Animate and apply the constraints.
+//            self.layoutIfNeeded()
+//        }, completion: { [self] _ in
+//            // Remove the old Center View
+//            self.presentedImageView.removeFromSuperview()
+//
+//            removeConstraint(name: "UpdatedRightLeadingConstraint")
+//
+//            self.presentedImageView = rightImageView
+//            sender.isEnabled = true
+//
+//        })
     }
 
     func removeConstraint(name: String) {
@@ -194,7 +217,8 @@ class CarouselView: UIView {
         }
 
         Task {
-            let newImage = try await delegate.getImage(index: currentlyPresentedIndex)
+            //let newImage = try await delegate.getImage(index: currentlyPresentedIndex)
+            let newImage = currentImage
             imageView.contentMode = .scaleAspectFill
 
             UIView.transition(with: imageView,
@@ -208,6 +232,7 @@ class CarouselView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupFromNib()
+        setupImageView()
     }
 
     @objc func autoScroll() {
@@ -217,6 +242,7 @@ class CarouselView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
+        setupImageView()
     }
 
     func setupImageView() {
